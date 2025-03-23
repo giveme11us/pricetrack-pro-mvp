@@ -40,6 +40,7 @@ export const AlertDialog: React.FC<AlertDialogProps> = ({
       message,
       threshold: parseFloat(priceThreshold),
       time: new Date().toLocaleString(),
+      isActive: true,
     });
 
     setPriceThreshold('');
