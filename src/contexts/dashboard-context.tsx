@@ -27,7 +27,6 @@ export interface Alert {
 
 interface DashboardContextType {
   products: Product[];
-  alerts: Alert[];
   competitors: string[];
   addProduct: (product: Omit<Product, 'id'>) => void;
   updateProduct: (id: string, product: Partial<Product>) => void;
@@ -40,7 +39,6 @@ const DashboardContext = createContext<DashboardContextType | undefined>(undefin
 
 export const DashboardProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [alerts, setAlerts] = useState<Alert[]>([]);
   const [competitors] = useState<string[]>(['Amazon', 'eBay', 'Google Shopping']);
 
   const addProduct = (product: Omit<Product, 'id'>) => {
@@ -92,7 +90,6 @@ export const DashboardProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     <DashboardContext.Provider
       value={{
         products,
-        alerts,
         competitors,
         addProduct,
         updateProduct,
