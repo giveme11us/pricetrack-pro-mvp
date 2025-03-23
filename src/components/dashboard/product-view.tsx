@@ -89,7 +89,10 @@ export const ProductView: React.FC<ProductViewProps> = ({
     
     onAddAlert(product.id, {
       type: 'price',
-      isActive: true,
+      message: `Alert when price goes ${newAlertType} €${newAlertPrice}`,
+      threshold: parseFloat(newAlertPrice),
+      time: new Date().toLocaleString(),
+      isActive: true
     });
     
     setNewAlertPrice('');
