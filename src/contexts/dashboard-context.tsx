@@ -23,6 +23,7 @@ export interface Alert {
   isActive: boolean;
   message: string;
   time: string;
+  threshold?: number;
 }
 
 interface DashboardContextType {
