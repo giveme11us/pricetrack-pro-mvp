@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Product, Alert } from '@/contexts/dashboard-context';
-import { Search, Filter, Plus, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Search, Plus, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ProductActions } from './product-actions';
 import { ProductDialog } from './product-dialog';
 import { ProductView } from './product-view';

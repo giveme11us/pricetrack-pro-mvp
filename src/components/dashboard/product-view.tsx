@@ -9,29 +9,26 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { Badge } from '@/components/ui/badge';
 import { Product, Alert } from '@/contexts/dashboard-context';
 import {
   DollarSign,
   TrendingUp,
-  AlertTriangle,
-  ShoppingCart,
-  Clock,
-  X,
+  Bell,
   Plus,
+  X,
 } from 'lucide-react';
 import {
   LineChart,
   Line,
+  BarChart,
+  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  BarChart,
-  Bar,
 } from 'recharts';
 
 interface ProductViewProps {
@@ -232,7 +229,7 @@ export const ProductView: React.FC<ProductViewProps> = ({
                     className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
                   >
                     <div className="flex items-center space-x-2">
-                      <AlertTriangle className="h-4 w-4 text-gray-500" />
+                      <Bell className="h-4 w-4 text-gray-500" />
                       <div>
                         <div className="text-sm">
                           Alert when price goes {alert.type} €{alert.price}

@@ -12,8 +12,8 @@ import { Badge } from '@/components/ui/badge';
 import {
   DollarSign,
   TrendingUp,
-  Package,
-  Clock,
+  ShoppingCart,
+  Plus,
 } from 'lucide-react';
 import {
   BarChart,
