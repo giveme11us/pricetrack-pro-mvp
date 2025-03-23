@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/scrapfiy',
+  basePath: '/pricetrack-pro-mvp',
   images: {
     unoptimized: true,
   },
