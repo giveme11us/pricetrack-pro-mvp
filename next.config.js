@@ -5,6 +5,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  trailingSlash: true,
+  assetPrefix: '/pricetrack-pro-mvp/',
 }
 
 module.exports = nextConfig 
