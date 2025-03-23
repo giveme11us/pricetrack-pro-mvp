@@ -11,6 +11,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
+import { Label } from '@/components/ui/label';
 import { Product, Alert } from '@/contexts/dashboard-context';
 import {
   DollarSign,
@@ -87,10 +88,8 @@ export const ProductView: React.FC<ProductViewProps> = ({
     if (!newAlertPrice) return;
     
     onAddAlert(product.id, {
-      price: parseFloat(newAlertPrice),
-      type: newAlertType,
+      type: 'price',
       isActive: true,
-      createdAt: new Date().toISOString(),
     });
     
     setNewAlertPrice('');
@@ -232,10 +231,10 @@ export const ProductView: React.FC<ProductViewProps> = ({
                       <Bell className="h-4 w-4 text-gray-500" />
                       <div>
                         <div className="text-sm">
-                          Alert when price goes {alert.type} €{alert.price}
+                          Alert when price goes {alert.type}
                         </div>
                         <div className="text-xs text-gray-500">
-                          Created {new Date(alert.createdAt).toLocaleDateString()}
+                          Created {new Date().toLocaleDateString()}
                         </div>
                       </div>
                     </div>
