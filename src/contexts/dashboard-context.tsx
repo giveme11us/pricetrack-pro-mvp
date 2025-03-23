@@ -156,108 +156,30 @@ const mockAnalytics: Analytics = {
 
 const DashboardContext = createContext<DashboardContextType | undefined>(undefined);
 
-export const DashboardProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const DashboardProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [activeTab, setActiveTab] = useState('overview');
-  const [products, setProducts] = useState<Product[]>([
-    {
-      id: '1',
-      name: 'iPhone 13 Pro',
-      category: 'Electronics',
-      competitor: 'Amazon',
-      image: 'https://images.unsplash.com/photo-1632661675196-85450a83c131',
-      currentPrice: 999,
-      lowestPrice: 899,
-      highestPrice: 1099,
-      priceChange: -50,
-      priceChangePercentage: -4.8,
-      isActive: true,
-      alerts: [
-        {
-          id: '1',
-          type: 'price',
-          message: 'Price dropped below €900',
-          threshold: 900,
-          time: '2024-03-20 14:30',
-        },
-      ],
-    },
-    {
-      id: '2',
-      name: 'MacBook Pro M1',
-      category: 'Electronics',
-      competitor: 'Best Buy',
-      image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8',
-      currentPrice: 1299,
-      lowestPrice: 1199,
-      highestPrice: 1399,
-      priceChange: 100,
-      priceChangePercentage: 8.3,
-      isActive: true,
-      alerts: [],
-    },
-  ]);
-
-  const [alerts, setAlerts] = useState<Alert[]>([
-    {
-      id: '1',
-      type: 'price',
-      message: 'Price dropped below €900',
-      threshold: 900,
-      time: '2024-03-20 14:30',
-    },
-  ]);
-
-  const [competitors, setCompetitors] = useState<Competitor[]>([
-    {
-      id: '1',
-      name: 'Amazon',
-      url: 'https://amazon.com',
-      logo: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&h=500&fit=crop',
-      products: 12,
-      lastChecked: '5 minutes ago',
-    },
-  ]);
-
-  const [priceHistory] = useState([
-    {
-      date: '2024-03-01',
-      myPrice: 100,
-      amazon: 95,
-      ebay: 105,
-      googleShopping: 98,
-    },
-    {
-      date: '2024-03-02',
-      myPrice: 100,
-      amazon: 92,
-      ebay: 102,
-      googleShopping: 95,
-    },
-    {
-      date: '2024-03-03',
-      myPrice: 100,
-      amazon: 90,
-      ebay: 100,
-      googleShopping: 92,
-    },
-  ]);
+  const [products, setProducts] = useState<Product[]>(mockProducts);
+  const [alerts, setAlerts] = useState<Alert[]>([]);
+  const [competitors, setCompetitors] = useState<Competitor[]>(mockCompetitors);
 
   const addProduct = (product: Omit<Product, 'id'>) => {
-    const newProduct: Product = {
+    const newProduct = {
       ...product,
       id: Math.random().toString(36).substr(2, 9),
     };
     setProducts((prev) => [...prev, newProduct]);
   };
 
-  const updateProduct = (id: string, product: Partial<Product>) => {
+  const updateProduct = (product: Product) => {
     setProducts((prev) =>
-      prev.map((p) => (p.id === id ? { ...p, ...product } : p))
+      prev.map((p) => (p.id === product.id ? product : p))
     );
   };
 
-  const deleteProduct = (id: string) => {
-    setProducts((prev) => prev.filter((p) => p.id !== id));
+  const deleteProduct = (productId: string) => {
+    setProducts((prev) => prev.filter((p) => p.id !== productId));
   };
 
   const toggleProductStatus = (id: string) => {
@@ -267,7 +189,7 @@ export const DashboardProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const addAlert = (productId: string, alert: Omit<Alert, 'id'>) => {
-    const newAlert: Alert = {
+    const newAlert = {
       ...alert,
       id: Math.random().toString(36).substr(2, 9),
     };

@@ -7,9 +7,14 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Product } from '@/contexts/dashboard-context';
-import { Clock, DollarSign, TrendingUp, AlertTriangle } from 'lucide-react';
+import {
+  DollarSign,
+  TrendingUp,
+  X,
+} from 'lucide-react';
 import {
   LineChart,
   Line,
@@ -128,7 +133,7 @@ export const PriceHistory: React.FC<PriceHistoryProps> = ({
                     className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
                   >
                     <div className="flex items-center space-x-2">
-                      <Clock className="h-4 w-4 text-gray-500" />
+                      <X className="h-4 w-4 text-gray-500" />
                       <span className="text-sm">{data.date}</span>
                     </div>
                     <div className="flex items-center space-x-2">

@@ -7,10 +7,14 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Search, Plus, TrendingUp, DollarSign, ShoppingCart } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import {
+  DollarSign,
+  TrendingUp,
+  Package,
+  Clock,
+} from 'lucide-react';
 import {
   BarChart,
   Bar,

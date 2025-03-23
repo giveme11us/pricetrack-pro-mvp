@@ -7,26 +7,26 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import {
-  BarChart,
-  Bar,
+  DollarSign,
+  TrendingUp,
+  Bell,
+  Package,
+} from 'lucide-react';
+import {
+  LineChart,
+  Line,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  BarChart,
+  Bar,
   PieChart,
   Pie,
   Cell,
 } from 'recharts';
-import {
-  TrendingUp,
-  DollarSign,
-  AlertTriangle,
-  ShoppingCart,
-  BarChart2,
-} from 'lucide-react';
 
 export const Analytics: React.FC = () => {
   // Mock analytics data
@@ -47,13 +47,13 @@ export const Analytics: React.FC = () => {
       title: 'Active Alerts',
       value: 8,
       change: '-2 from yesterday',
-      icon: AlertTriangle,
+      icon: Bell,
     },
     {
       title: 'Products Tracked',
       value: 370,
       change: '+15 from last week',
-      icon: ShoppingCart,
+      icon: Package,
     },
   ];
 

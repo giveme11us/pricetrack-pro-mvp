@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import {
   Dialog,
   DialogContent,
@@ -115,11 +116,14 @@ export const ProductView: React.FC<ProductViewProps> = ({
           {/* Product Information */}
           <div className="space-y-6">
             <div className="flex items-start space-x-4">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-32 h-32 rounded-lg object-cover"
-              />
+              <div className="relative w-32 h-32">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-semibold">{product.name}</h3>
                 <div className="flex items-center space-x-2">

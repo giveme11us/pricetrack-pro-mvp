@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import {
   Card,
   CardContent,
@@ -141,11 +142,14 @@ export const ProductTable: React.FC = () => {
                 <tr key={product.id} className="border-b hover:bg-gray-50 cursor-pointer" onClick={() => setSelectedProduct(product)}>
                   <td className="px-4 py-2">
                     <div className="flex items-center space-x-2">
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="h-8 w-8 rounded object-cover"
-                      />
+                      <div className="relative h-8 w-8">
+                        <Image
+                          src={product.image}
+                          alt={product.name}
+                          fill
+                          className="rounded object-cover"
+                        />
+                      </div>
                       <div>
                         <div className="font-medium">{product.name}</div>
                         <div className="text-sm text-gray-500">
