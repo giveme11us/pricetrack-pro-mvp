@@ -10,6 +10,8 @@ export interface Product {
   currentPrice: number;
   priceChange: number;
   priceChangePercentage: number;
+  lowestPrice: number;
+  highestPrice: number;
   image: string;
   isActive: boolean;
   alerts: Alert[];
@@ -19,6 +21,8 @@ export interface Alert {
   id: string;
   type: 'price' | 'stock' | 'availability';
   isActive: boolean;
+  message: string;
+  time: string;
 }
 
 interface DashboardContextType {

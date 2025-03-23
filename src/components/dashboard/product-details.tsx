@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import {
   Dialog,
   DialogContent,
@@ -30,25 +31,25 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({
         </DialogHeader>
         <div className="space-y-6">
           <div className="flex items-start space-x-4">
-            <div className="flex-shrink-0">
-              <img
+            <div className="relative w-32 h-32">
+              <Image
                 src={product.image}
                 alt={product.name}
-                className="h-32 w-32 rounded-lg object-cover"
+                fill
+                className="rounded-lg object-cover"
               />
             </div>
-            <div className="flex-1">
-              <h3 className="text-lg font-semibold">{product.name}</h3>
-              <p className="text-sm text-gray-500">{product.competitor}</p>
-              <div className="mt-2">
+            <div className="space-y-2">
+              <h3 className="text-xl font-semibold">{product.name}</h3>
+              <div className="flex items-center space-x-2">
                 <Badge variant="secondary">{product.category}</Badge>
                 <Badge
                   variant={product.isActive ? 'default' : 'secondary'}
-                  className="ml-2"
                 >
                   {product.isActive ? 'Active' : 'Inactive'}
                 </Badge>
               </div>
+              <div className="text-sm text-gray-500">{product.competitor}</div>
             </div>
           </div>
 
